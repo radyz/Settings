@@ -148,6 +148,7 @@
 					<Scope Name="Coded UI Test Editor" ID="{E91F82D5-B532-47E9-ADAD-72F96EF9D35F}"/>
 					<Scope Name="Concurrency Report" ID="{5FCCFCD6-6237-4D02-B1DC-B6321AF08CE5}"/>
 					<Scope Name="Difference Viewer" ID="{79D52DDF-52BC-43F1-9663-B3E85CDCA912}"/>
+					<Scope Name="ProjectTemplateEditor" ID="{48CDF9E2-03D8-4306-BF0F-29AA508EFFBF}"/>
 					<Scope Name="Microsoft SQL Server Data Tools, Schema Compare" ID="{00E9D2E3-9044-47D1-978C-BE2825249219}"/>
 					<Scope Name="Table Designer" ID="{4194FEE5-6777-419F-A5FC-47A536DF1BDB}"/>
 					<Scope Name="Layer Diagram" ID="{305563E9-FDF9-485B-B73E-D9FEDCC36F2E}"/>
@@ -166,6 +167,11 @@
 					<RemoveShortcut Command="File.Print" Scope="Global">Ctrl+P</RemoveShortcut>
 					<RemoveShortcut Command="View.PackageManagerConsole" Scope="Global">Ctrl+P, Ctrl+M</RemoveShortcut>
 					<Shortcut Command="View.PackageManagerConsole" Scope="Global">Ctrl+P, M</Shortcut>
+					<Shortcut Command="Window.NewHorizontalTabGroup" Scope="Global">Ctrl+W, H</Shortcut>
+					<Shortcut Command="Window.NewVerticalTabGroup" Scope="Global">Ctrl+W, V</Shortcut>
+					<Shortcut Command="Window.MovetoNextTabGroup" Scope="Global">Ctrl+W, N</Shortcut>
+					<RemoveShortcut Command="View.PropertiesWindow" Scope="Global">Ctrl+W, P</RemoveShortcut>
+					<Shortcut Command="Window.MovetoPreviousTabGroup" Scope="Global">Ctrl+W, P</Shortcut>
 				</UserShortcuts>
 			</KeyboardShortcuts>
 		</Category>
