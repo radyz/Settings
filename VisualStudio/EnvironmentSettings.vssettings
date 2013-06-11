@@ -3,6 +3,7 @@
 	<ToolsOptions>
 		<ToolsOptionsCategory name="Environment" RegisteredName="Environment"/>
 		<ToolsOptionsCategory name="TextEditor" RegisteredName="TextEditor">
+			<ToolsOptionsSubCategory name="AllLanguages" RegisteredName="AllLanguages" PackageName="Text Management Package"/>
 			<ToolsOptionsSubCategory name="CSharp" RegisteredName="CSharp" PackageName="Text Management Package">
 				<PropertyValue name="TabSize">4</PropertyValue>
 				<PropertyValue name="AutoListMembers">true</PropertyValue>
