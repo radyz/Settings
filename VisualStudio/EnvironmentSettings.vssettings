@@ -2,6 +2,24 @@
 	<ApplicationIdentity version="11.0"/>
 	<ToolsOptions>
 		<ToolsOptionsCategory name="Environment" RegisteredName="Environment"/>
+		<ToolsOptionsCategory name="TextEditor" RegisteredName="TextEditor">
+			<ToolsOptionsSubCategory name="CSharp" RegisteredName="CSharp" PackageName="Text Management Package">
+				<PropertyValue name="TabSize">4</PropertyValue>
+				<PropertyValue name="AutoListMembers">true</PropertyValue>
+				<PropertyValue name="IndentStyle">2</PropertyValue>
+				<PropertyValue name="HideAdvancedMembers">true</PropertyValue>
+				<PropertyValue name="ShowNavigationBar">true</PropertyValue>
+				<PropertyValue name="VirtualSpace">false</PropertyValue>
+				<PropertyValue name="InsertTabs">false</PropertyValue>
+				<PropertyValue name="WordWrapGlyphs">true</PropertyValue>
+				<PropertyValue name="EnableLeftClickForURLs">true</PropertyValue>
+				<PropertyValue name="ShowLineNumbers">true</PropertyValue>
+				<PropertyValue name="WordWrap">true</PropertyValue>
+				<PropertyValue name="IndentSize">4</PropertyValue>
+				<PropertyValue name="CutCopyBlankLines">true</PropertyValue>
+				<PropertyValue name="AutoListParams">true</PropertyValue>
+			</ToolsOptionsSubCategory>
+		</ToolsOptionsCategory>
 	</ToolsOptions>
 	<Category name="Environment_Group" RegisteredName="Environment_Group">
 		<Category name="Environment_FontsAndColors" Category="{1EDA5DD4-927A-43a7-810E-7FD247D0DA1D}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_FontsAndColors" PackageName="Visual Studio Environment Package">
@@ -166,11 +184,11 @@
 					<RemoveShortcut Command="Window.ActivateQuickLaunch" Scope="Global">Ctrl+Q</RemoveShortcut>
 					<RemoveShortcut Command="File.Print" Scope="Global">Ctrl+P</RemoveShortcut>
 					<RemoveShortcut Command="View.PackageManagerConsole" Scope="Global">Ctrl+P, Ctrl+M</RemoveShortcut>
+					<RemoveShortcut Command="View.PropertiesWindow" Scope="Global">Ctrl+W, P</RemoveShortcut>
 					<Shortcut Command="View.PackageManagerConsole" Scope="Global">Ctrl+P, M</Shortcut>
 					<Shortcut Command="Window.NewHorizontalTabGroup" Scope="Global">Ctrl+W, H</Shortcut>
 					<Shortcut Command="Window.NewVerticalTabGroup" Scope="Global">Ctrl+W, V</Shortcut>
 					<Shortcut Command="Window.MovetoNextTabGroup" Scope="Global">Ctrl+W, N</Shortcut>
-					<RemoveShortcut Command="View.PropertiesWindow" Scope="Global">Ctrl+W, P</RemoveShortcut>
 					<Shortcut Command="Window.MovetoPreviousTabGroup" Scope="Global">Ctrl+W, P</Shortcut>
 				</UserShortcuts>
 			</KeyboardShortcuts>
