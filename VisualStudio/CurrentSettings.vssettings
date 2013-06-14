@@ -194,5 +194,16 @@
 				</UserShortcuts>
 			</KeyboardShortcuts>
 		</Category>
+		<Category name="Environment_TabsAndWindows" Category="{CCF27946-63D9-4806-91BA-EEBF5F3DFA4A}" Package="{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}" RegisteredName="Environment_TabsAndWindows" PackageName="Environment Package Window Management">
+			<PropertyValue name="EnableIndependentTabWell">True</PropertyValue>
+			<PropertyValue name="EnableIndependentToolWindows">False</PropertyValue>
+			<PropertyValue name="EnablePreviewTab">False</PropertyValue>
+			<PropertyValue name="EnableSingleClickPreviewInFindResults">False</PropertyValue>
+			<PropertyValue name="EnableSingleClickPreviewInSolutionExplorer">False</PropertyValue>
+			<PropertyValue name="MaintainPinStatus">False</PropertyValue>
+			<PropertyValue name="ShowAutoHiddenWindowsOnHover">False</PropertyValue>
+			<PropertyValue name="ShowPinButtonInUnpinnedTabs">True</PropertyValue>
+			<PropertyValue name="ShowPinnedTabsInSeparateRow">False</PropertyValue>
+		</Category>
 	</Category>
 </UserSettings>
