@@ -43,7 +43,7 @@
 							<Item Name="Keyword" Foreground="0x00FF0000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Preprocessor Keyword" Foreground="0x00850000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Operator" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
-							<Item Name="String" Foreground="0x001515A3" Background="0x02000000" BoldFont="No"/>
+							<Item Name="String" Foreground="0x001515A3" Background="0x00D7D7D7" BoldFont="No"/>
 							<Item Name="Number" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="urlformat" Foreground="0x00FF0000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Selected Text" Foreground="0x02000000" Background="0x00FF9933" BoldFont="No"/>
@@ -78,13 +78,13 @@
 							<Item Name="Keyword" Foreground="0x00FF0000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Comment" Foreground="0x00008000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Identifier" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
-							<Item Name="String" Foreground="0x001515A3" Background="0x02000000" BoldFont="No"/>
+							<Item Name="String" Foreground="0x001515A3" Background="0x00D7D7D7" BoldFont="No"/>
 							<Item Name="Number" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XML Doc Comment" Foreground="0x00008000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XML Doc Tag" Foreground="0x00808080" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XML CData Section" Foreground="0x00808080" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XML Comment" Foreground="0x00006400" Background="0x02000000" BoldFont="No"/>
-							<Item Name="String(C# @ Verbatim)" Foreground="0x000E0E62" Background="0x02000000" BoldFont="No"/>
+							<Item Name="String(C# @ Verbatim)" Foreground="0x000E0E62" Background="0x00D7D7D7" BoldFont="No"/>
 							<Item Name="Operator" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Preprocessor Keyword" Foreground="0x00850000" Background="0x02000000" BoldFont="No"/>
 							<Item Name="User Types" Foreground="0x00AF912B" Background="0x02000000" BoldFont="No"/>
