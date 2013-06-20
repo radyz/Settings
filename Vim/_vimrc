@@ -1,0 +1,32 @@
+:set wildmenu
+:set guioptions-=m
+:set guioptions-=T
+:set smartcase
+:set ignorecase
+:set number
+
+" Disable annoying beep sound when errors ocurr, it just clears the value to empty
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" Set font style
+if has('gui_running')
+  set guifont=consolas:h11
+endif
+
+" http://vimcolorschemetest.googlecode.com/svn/colors/ashen.vim
+" Syntax highlighting
+syntax on
+colorscheme ashen
+
+" https://github.com/tpope/vim-pathogen
+" Pathogen plugin in order to handle the installation of every other plugin
+execute pathogen#infect()
+
+" https://github.com/scrooloose/nerdtree
+" NERD Tree config
+" Open it on gvim start
+autocmd vimenter * NERDTree
+
+" Open in maximized state, x on an English Windows version
+au GUIEnter * simalt ~x
