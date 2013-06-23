@@ -1,9 +1,43 @@
+" Pathogen plugin in order to handle the installation of every other plugin
+execute pathogen#infect()
+
 :set wildmenu
 :set guioptions-=m
 :set guioptions-=T
 :set smartcase
 :set ignorecase
 :set number
+:set hlsearch
+
+" Indents
+:set expandtab
+:set shiftwidth=4
+
+" Mapppings
+
+" Unmap the arrow keys
+no <down> ddp
+no <left> <Nop>
+no <right> <Nop>
+no <up> ddkP
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
+vno <down> <Nop>
+vno <left> <Nop>
+vno <right> <Nop>
+vno <up> <Nop>
+
+"Leaders
+imap <leader>' ''<ESC>i
+imap <leader>" ""<ESC>i
+imap <leader>( ()<ESC>i
+imap <leader>[ []<ESC>i
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NERDTreeToggle<CR>
 
 " Disable annoying beep sound when errors ocurr, it just clears the value to empty
 set noerrorbells visualbell t_vb=
@@ -12,21 +46,19 @@ autocmd GUIEnter * set visualbell t_vb=
 " Set font style
 if has('gui_running')
   set guifont=consolas:h11
+  colorscheme github
+else
+  colorscheme darkblue
 endif
 
-" http://vimcolorschemetest.googlecode.com/svn/colors/ashen.vim
 " Syntax highlighting
-syntax on
-colorscheme ashen
+syntax enable
 
-" https://github.com/tpope/vim-pathogen
-" Pathogen plugin in order to handle the installation of every other plugin
-execute pathogen#infect()
+"PLUGIN START
 
-" https://github.com/scrooloose/nerdtree
 " NERD Tree config
-" Open it on gvim start
-autocmd vimenter * NERDTree
+" It became annoying after a while, let's leave it just because...
+" autocmd vimenter * NERDTree
 
-" Open in maximized state, x on an English Windows version
+"x on an English Windows version
 au GUIEnter * simalt ~x
