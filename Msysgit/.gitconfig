@@ -1,0 +1,24 @@
+[user] 
+        name = Radyz
+        email = ej_chavez88@hotmail.com 
+[credential] 
+        helper = !'C:\\Users\\ErnestoJose\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+[mergetool]
+	prompt = false
+	keepBackup = false
+	keepTemporaries = false
+[merge]
+	tool = kdiff3
+        conflictstyle = diff3
+[mergetool "kdiff3"]
+	name = kdiff3
+	trustExitCode = true
+	path = C:/Program Files/KDiff3
+	cmd = kdiff3.exe -b $BASE $LOCAL $REMOTE -o $MERGED --qall -L1 BASE -L2 LOCAL -L3 REMOTE
+[diff]
+	tool = kdiff3
+[difftool "kdiff3"]
+	name = kdiff3
+	trustExitCode = true
+	path = C:/Program Files/KDiff3
+	cmd = kdiff3.exe $LOCAL $REMOTE
