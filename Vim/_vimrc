@@ -48,7 +48,7 @@ if has('gui_running')
   set guifont=consolas:h11
   colorscheme github
 else
-  colorscheme darkblue
+  colorscheme default
 endif
 
 " Syntax highlighting
