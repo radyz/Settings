@@ -1,8 +1,8 @@
 [user] 
         name = Radyz
         email = ej_chavez88@hotmail.com 
-[credential] 
-        helper = !'C:\\Users\\ErnestoJose\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+[credential]
+	helper = !'C:\\Users\\Ernesto\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
 [mergetool]
 	prompt = false
 	keepBackup = false
@@ -21,4 +21,6 @@
 	name = kdiff3
 	trustExitCode = true
 	path = C:/Program Files/KDiff3
-	cmd = kdiff3.exe $LOCAL $REMOTE
+	cmd = kdiff3.exe -b $LOCAL $REMOTE -o $MERGED --qall 
+[core]
+	excludesfile = C:\\Users\\Ernesto\\.gitignore
