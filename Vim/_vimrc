@@ -13,27 +13,6 @@ execute pathogen#infect()
 :set expandtab
 :set shiftwidth=4
 
-" Mapppings
-
-" Unmap the arrow keys
-no <down> ddp
-no <left> <Nop>
-no <right> <Nop>
-no <up> ddkP
-ino <down> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
-ino <up> <Nop>
-vno <down> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-vno <up> <Nop>
-
-"Leaders
-imap <leader>' ''<ESC>i
-imap <leader>" ""<ESC>i
-imap <leader>( ()<ESC>i
-imap <leader>[ []<ESC>i
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
