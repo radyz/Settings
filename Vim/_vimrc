@@ -1,43 +1,63 @@
-" Pathogen plugin in order to handle the installation of every other plugin
+:"Pathogen plugin in order to handel the installation of every other plugin
 execute pathogen#infect()
+execute pathogen#helptags()
 
 :set wildmenu
 :set guioptions-=m
 :set guioptions-=T
 :set smartcase
-:set ignorecase
 :set number
 :set hlsearch
-
-" Indents
 :set expandtab
-:set shiftwidth=4
+:set tabstop=2 shiftwidth=2 softtabstop=2
+:set autoindent
 
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
 
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
-
-" Disable annoying beep sound when errors ocurr, it just clears the value to empty
+"Disable annoying beep sound when errors ocurr, it just clears the value to empty
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-" Set font style
-if has('gui_running')
-  set guifont=consolas:h11
-  colorscheme github
-else
-  colorscheme default
+" Maximize window on start
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim windows.
+  set lines=999 columns=999
 endif
 
-" Syntax highlighting
-syntax enable
+" Colorscheme 
+if has("gui_running")
+  :set background=dark
+  :colorscheme solarized
+else
+  :colorscheme default
+endif
 
-"PLUGIN START
+" PLUGINS 
 
-" NERD Tree config
-" It became annoying after a while, let's leave it just because...
-" autocmd vimenter * NERDTree
+" ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-"x on an English Windows version
-au GUIEnter * simalt ~x
+" nerdtree
+nmap <F9> :NERDTreeToggle<CR>
+
+
+"ctrlp.vim plugin => find files
+"ag plugin => find words in files
+"align
+
+
+"Tab remap to omni-complete
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
