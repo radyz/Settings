@@ -11,6 +11,10 @@ execute pathogen#helptags()
 :set expandtab
 :set tabstop=2 shiftwidth=2 softtabstop=2
 :set autoindent
+"Allow to switch buffers without having to save its changes
+:set hidden
+"Leader
+:let mapleader=","
 
 syntax on
 filetype on
@@ -31,6 +35,7 @@ endif
 " Colorscheme 
 if has("gui_running")
   :set background=dark
+  :set t_Co=16
   :colorscheme solarized
 else
   :colorscheme default
@@ -44,6 +49,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " nerdtree
 nmap <F9> :NERDTreeToggle<CR>
 
+nmap <Leader>n :bn<CR>
+nmap <Leader>p :bp<CR>
 
 "ctrlp.vim plugin => find files
 "ag plugin => find words in files
