@@ -7,12 +7,23 @@ execute pathogen#helptags()
 :set guioptions-=T
 :set smartcase
 :set number
+
+"Highlight search as you type
 :set hlsearch
+:set incsearch
+
 :set expandtab
 :set tabstop=2 shiftwidth=2 softtabstop=2
 :set autoindent
+:set showmatch
+
 "Allow to switch buffers without having to save its changes
 :set hidden
+
+"Do not create backup files
+:set nobackup
+:set noswapfile
+
 "Leader
 :let mapleader=","
 
@@ -46,17 +57,41 @@ endif
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" REMAPS
+
 " nerdtree
 nmap <F9> :NERDTreeToggle<CR>
 
+" Move around buffers
 nmap <Leader>n :bn<CR>
 nmap <Leader>p :bp<CR>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"Yank/paste to the OS clipboard
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+yy
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+
+" Jump to matching pairs
+nnoremap <tab> %
+vnoremap <tab> %
+
+" : => ;
+nnoremap ; :
+
+"Sudo into file to make changes
+cmap w!! w !sudo tee % >/dev/null
 
 "ctrlp.vim plugin => find files
 "ag plugin => find words in files
 "align
 
 
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "Tab remap to omni-complete
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -67,4 +102,3 @@ function! InsertTabWrapper()
     endif
 endfunction
 
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
