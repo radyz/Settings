@@ -61,12 +61,13 @@ nmap <F10> :TagbarToggle<CR>
 
 " minibuffer explorer
 nmap <Leader>bd :MBEbd<CR>
-nmap <Leader>n :MBEbn<CR>
-nmap <Leader>p :MBEbp<CR>
 "" most recent
 nmap <Leader>mn :MBEbf<CR>
 "" most previous
 nmap <Leader>mp :MBEbb<CR>
+"" regular cycle
+nmap <Leader>n :bn<CR>
+nmap <Leader>p :bp<CR>
 
 " Move around buffers
 map <C-h> <C-w>h
@@ -112,6 +113,13 @@ inoremap <Leader><tab> <c-n>
 " syntastic
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+"" enable to specify third party lib for java
+"" call :SyntasticJavacEditClassPath once and specify path
+"" android path: /opt/android/adt-bundle-linux-x86_64-20130917/sdk/platforms/android-18/android.jar
+let g:syntastic_java_javac_config_file_enabled=1
 
 " easytags
 let g:easytags_updatetime_warn=0
+
+" ctrlP
+let g:ctrlp_custom_ignore = 'tags'
