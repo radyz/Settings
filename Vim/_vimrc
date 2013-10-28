@@ -52,29 +52,34 @@ else
   :colorscheme default
 endif
 
-" PLUGINS 
-
-" ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
 " REMAPS
 
 " nerdtree
 nmap <F9> :NERDTreeToggle<CR>
+" tagbar
+nmap <F10> :TagbarToggle<CR>
+
+" minibuffer explorer
+nmap <Leader>bd :MBEbd<CR>
+nmap <Leader>n :MBEbn<CR>
+nmap <Leader>p :MBEbp<CR>
+"" most recent
+nmap <Leader>mn :MBEbf<CR>
+"" most previous
+nmap <Leader>mp :MBEbb<CR>
 
 " Move around buffers
-nmap <Leader>n :bn<CR>
-nmap <Leader>p :bp<CR>
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+"Not working, review when possible...
 "Yank/paste to the OS clipboard
-nnoremap <leader>y "+y
-nnoremap <leader>Y "+yy
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
+"nnoremap <leader>y "+y
+"nnoremap <leader>Y "+yy
+"nnoremap <leader>p "+p
+"nnoremap <leader>P "+P
 
 " Jump to matching pairs
 nnoremap <tab> %
@@ -91,14 +96,22 @@ cmap w!! w !sudo tee % >/dev/null
 "align
 
 
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <Leader><tab> <c-n>
 "Tab remap to omni-complete
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
+"function! InsertTabWrapper()
+"   let col = col('.') - 1
+"   if !col || getline('.')[col - 1] !~ '\k'
+"       return "\<tab>"
+"   else
+"       return "\<c-p>"
+"   endif
+"endfunction
 
+" PLUGINS
+
+" syntastic
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+
+" easytags
+let g:easytags_updatetime_warn=0
