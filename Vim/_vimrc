@@ -50,6 +50,7 @@ if has("gui_running")
   :colorscheme solarized
 else
   :colorscheme default
+  :set t_Co=256
 endif
 
 " REMAPS
@@ -122,4 +123,7 @@ let g:syntastic_java_javac_config_file_enabled=1
 let g:easytags_updatetime_warn=0
 
 " ctrlP
-let g:ctrlp_custom_ignore = 'tags'
+let g:ctrlp_custom_ignore='tags'
+
+" airline bar
+let g:airline_theme='solarized'
