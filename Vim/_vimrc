@@ -8,6 +8,9 @@ execute pathogen#helptags()
 :set smartcase
 :set number
 
+"Open all folds on load - fixes fugitive exiting diff mode
+:set foldlevel=20
+
 "Highlight search as you type
 :set hlsearch
 :set incsearch
@@ -49,7 +52,6 @@ if has("gui_running")
   :set t_Co=16
   :colorscheme solarized
 else
-  :colorscheme default
   :set t_Co=256
 endif
 
@@ -60,21 +62,24 @@ nmap <F9> :NERDTreeToggle<CR>
 " tagbar
 nmap <F10> :TagbarToggle<CR>
 
-" minibuffer explorer
-nmap <Leader>bd :MBEbd<CR>
-"" most recent
-nmap <Leader>mn :MBEbf<CR>
-"" most previous
-nmap <Leader>mp :MBEbb<CR>
-"" regular cycle
-nmap <Leader>n :bn<CR>
-nmap <Leader>p :bp<CR>
+" fugitive
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gp :Git push<CR>
+
+" zoomwin
+noremap <Leader>zw :ZoomWin<CR>
 
 " Move around buffers
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+" Make current buffer only buffer in split modes
+map <Leader>q <C-w><C-o>
 
 "Not working, review when possible...
 "Yank/paste to the OS clipboard
@@ -89,25 +94,10 @@ vnoremap <tab> %
 
 " : => ;
 nnoremap ; :
+vnoremap ; :
 
 "Sudo into file to make changes
 cmap w!! w !sudo tee % >/dev/null
-
-"ctrlp.vim plugin => find files
-"ag plugin => find words in files
-"align
-
-
-inoremap <Leader><tab> <c-n>
-"Tab remap to omni-complete
-"function! InsertTabWrapper()
-"   let col = col('.') - 1
-"   if !col || getline('.')[col - 1] !~ '\k'
-"       return "\<tab>"
-"   else
-"       return "\<c-p>"
-"   endif
-"endfunction
 
 " PLUGINS
 
