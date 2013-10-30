@@ -1,4 +1,4 @@
-:"Pathogen plugin in order to handel the installation of every other plugin
+:"Pathogen plugin in order to handle the installation of every other plugin
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -122,6 +122,9 @@ let g:ctrlp_custom_ignore='tags'
 
 " airline bar
 let g:airline_theme='bubblegum'
+"" required for airline so it shows on normal buffers
+set laststatus=2
+set ttimeoutlen=50
 
 " buffergator
 let g:buffergator_suppress_keymaps=1
