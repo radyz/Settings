@@ -73,13 +73,18 @@ nnoremap <Leader>gp :Git push<CR>
 " zoomwin
 noremap <Leader>zw :ZoomWin<CR>
 
+" buffergator
+nmap <Leader>b :BuffergatorToggle<CR>
+
 " Move around buffers
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 " Make current buffer only buffer in split modes
-map <Leader>q <C-w><C-o>
+map <Leader>o <C-w><C-o>
+" Undo buffer
+map <Leader>q <C-w>q
 
 "Not working, review when possible...
 "Yank/paste to the OS clipboard
@@ -117,3 +122,7 @@ let g:ctrlp_custom_ignore='tags'
 
 " airline bar
 let g:airline_theme='solarized'
+
+" buffergator
+let g:buffergator_suppress_keymaps=1
+
