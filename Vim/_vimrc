@@ -111,6 +111,7 @@ cmap w!! w !sudo tee % >/dev/null
 " syntastic
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_highlighting=0
 "" enable to specify third party lib for java
 "" call :SyntasticJavacEditClassPath once and specify path
 "" android path: /opt/android/adt-bundle-linux-x86_64-20130917/sdk/platforms/android-18/android.jar
