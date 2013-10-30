@@ -121,7 +121,7 @@ let g:easytags_updatetime_warn=0
 let g:ctrlp_custom_ignore='tags'
 
 " airline bar
-let g:airline_theme='solarized'
+let g:airline_theme='bubblegum'
 
 " buffergator
 let g:buffergator_suppress_keymaps=1
