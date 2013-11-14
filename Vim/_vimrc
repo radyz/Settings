@@ -87,6 +87,8 @@ map <C-l> <C-w>l
 map <Leader>o <C-w><C-o>
 " Undo buffer
 map <Leader>q <C-w>q
+" Close buffer without losing splits
+nnoremap <C-c> :bp\|bd #<CR>
 
 "Not working, review when possible...
 "Yank/paste to the OS clipboard
