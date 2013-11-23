@@ -111,13 +111,16 @@ cmap w!! w !sudo tee % >/dev/null
 " PLUGINS
 
 " syntastic
-let g:syntastic_auto_jump=1
+"let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_highlighting=0
 "" enable to specify third party lib for java
 "" call :SyntasticJavacEditClassPath once and specify path
 "" android path: /opt/android/adt-bundle-linux-x86_64-20130917/sdk/platforms/android-18/android.jar
 let g:syntastic_java_javac_config_file_enabled=1
+"" javascript with node
+let g:syntastic_javascript_checkers=['jshint']
+
 
 " easytags
 let g:easytags_updatetime_warn=0
@@ -134,3 +137,4 @@ set ttimeoutlen=50
 " buffergator
 let g:buffergator_suppress_keymaps=1
 
+let g:SuperTabDefaultCompletionType='context'
