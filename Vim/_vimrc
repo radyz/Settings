@@ -6,10 +6,19 @@ execute pathogen#helptags()
 :set guioptions-=m
 :set guioptions-=T
 :set smartcase
+:set ignorecase
 :set number
+:set more
+:set cursorline
 
 "Open all folds on load - fixes fugitive exiting diff mode
 :set foldlevel=20
+
+"Faster character redrawing
+:set ttyfast
+
+"Reload file if modified
+:set autoread
 
 "Highlight search as you type
 :set hlsearch
@@ -57,6 +66,10 @@ endif
 
 " REMAPS
 
+" moved up|down in wrapped lines
+:nmap j gj
+:nmap k gk
+
 " nerdtree
 nmap <F9> :NERDTreeToggle<CR>
 " tagbar
@@ -89,6 +102,8 @@ map <Leader>o <C-w><C-o>
 map <Leader>q <C-w>q
 " Close buffer without losing splits
 nnoremap <C-c> :bp\|bd #<CR>
+" Break line without 
+nmap <Leader><CR> i<CR><Esc>
 
 "Not working, review when possible...
 "Yank/paste to the OS clipboard
