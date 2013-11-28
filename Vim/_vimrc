@@ -62,6 +62,7 @@ if has("gui_running")
   :colorscheme solarized
 else
   :set t_Co=256
+  :colorscheme Monokai
 endif
 
 " REMAPS
@@ -144,7 +145,7 @@ let g:easytags_updatetime_warn=0
 let g:ctrlp_custom_ignore='tags'
 
 " airline bar
-let g:airline_theme='bubblegum'
+let g:airline_theme='molokai'
 "" required for airline so it shows on normal buffers
 set laststatus=2
 set ttimeoutlen=50
