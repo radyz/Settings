@@ -36,8 +36,8 @@ execute pathogen#helptags()
 :set nobackup
 :set noswapfile
 
-"Leader
-:let mapleader=","
+"I like to see hidden spaces, tabs, etc
+:set listchars=eol:$,tab:>-,trail:-
 
 syntax on
 filetype on
@@ -50,22 +50,34 @@ autocmd GUIEnter * set visualbell t_vb=
 
 " Maximize window on start
 if has("gui_running")
-  " GUI is running or is about to start.
-  " Maximize gvim windows.
-  set lines=999 columns=999
+" GUI is running or is about to start.
+" Maximize gvim windows.
+set lines=999 columns=999
 endif
 
 " Colorscheme 
 if has("gui_running")
-  :set background=dark
-  :set t_Co=16
-  :colorscheme solarized
+:set background=dark
+:set t_Co=16
+:colorscheme solarized
 else
-  :set t_Co=256
-  :colorscheme Monokai
+:set t_Co=256
+:colorscheme Monokai
+endif
+
+"Let's try not to exceed 80 char columns
+"with a lighter background warning
+if exists('+colorcolumn')
+let &colorcolumn="80,".join(range(80, 320),",")
 endif
 
 " REMAPS
+"Leader
+:let mapleader=","
+
+" toogle invisibles
+:nmap <Leader>l :set list!<CR>
+:vmap <Leader>l :set list!<CR>
 
 " moved up|down in wrapped lines
 :nmap j gj
@@ -105,6 +117,10 @@ map <Leader>q <C-w>q
 nnoremap <C-c> :bp\|bd #<CR>
 " Break line without 
 nmap <Leader><CR> i<CR><Esc>
+
+" Tabularize
+nnoremap <Leader>t :Tabularize /
+vnoremap <Leader>t :Tabularize /
 
 "Not working, review when possible...
 "Yank/paste to the OS clipboard
@@ -153,4 +169,4 @@ set ttimeoutlen=50
 " buffergator
 let g:buffergator_suppress_keymaps=1
 
-let g:SuperTabDefaultCompletionType='context'
+let g:SuperTabDefaultCompletionType="context"
