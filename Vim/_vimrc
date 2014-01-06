@@ -2,6 +2,7 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
+:set encoding=utf-8
 :set wildmenu
 :set guioptions-=m
 :set guioptions-=T
