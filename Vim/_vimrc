@@ -69,7 +69,7 @@ endif
 "Let's try not to exceed 80 char columns
 "with a lighter background warning
 if exists('+colorcolumn')
-let &colorcolumn="80,".join(range(80, 320),",")
+ let &colorcolumn="80,".join(range(80, 320),",")
 endif
 
 " REMAPS
@@ -154,6 +154,8 @@ let g:syntastic_java_javac_config_file_enabled=1
 "" javascript with node
 let g:syntastic_javascript_checkers=['jshint']
 
+" Nerdtree
+let g:NERDTreeDirArrows = 0
 
 " easytags
 let g:easytags_updatetime_warn=0
