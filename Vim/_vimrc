@@ -161,7 +161,7 @@ let g:NERDTreeDirArrows = 0
 let g:easytags_updatetime_warn=0
 
 " ctrlP
-let g:ctrlp_custom_ignore='tags'
+let g:ctrlp_custom_ignore='tags\|node_modules\|bower_components\'
 
 " airline bar
 let g:airline_theme='molokai'
