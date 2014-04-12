@@ -178,3 +178,6 @@ let g:SuperTabDefaultCompletionType="context"
 " snipmate
 imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
+imap <C-J>k <Plug>snipMateBack
+smap <C-J>k <Plug>snipMateBack
+imap <C-J>a <Plug>snipMateShow
