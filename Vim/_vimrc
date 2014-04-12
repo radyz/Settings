@@ -172,4 +172,9 @@ set ttimeoutlen=50
 " buffergator
 let g:buffergator_suppress_keymaps=1
 
+" supertab
 let g:SuperTabDefaultCompletionType="context"
+
+" snipmate
+imap <C-J> <Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
