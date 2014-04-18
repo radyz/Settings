@@ -31,6 +31,7 @@ execute pathogen#helptags()
 :set expandtab
 :set tabstop=2 shiftwidth=2 softtabstop=2
 :set autoindent
+:set smartindent
 :set showmatch
 
 "Allow to switch buffers without having to save its changes
@@ -133,10 +134,6 @@ vnoremap <Leader>t :Tabularize /
 "nnoremap <leader>p "+p
 "nnoremap <leader>P "+P
 
-" Jump to matching pairs
-nnoremap <tab> %
-vnoremap <tab> %
-
 " : => ;
 nnoremap ; :
 vnoremap ; :
@@ -181,6 +178,3 @@ let g:SuperTabDefaultCompletionType="context"
 " snipmate
 imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
-imap <C-J>k <Plug>snipMateBack
-smap <C-J>k <Plug>snipMateBack
-imap <C-J>a <Plug>snipMateShow
