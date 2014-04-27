@@ -67,7 +67,7 @@ if has("gui_running")
 :colorscheme solarized
 else
 :set t_Co=256
-:colorscheme Monokai
+:colorscheme hybrid
 endif
 
 "Let's try not to exceed 80 char columns
@@ -176,5 +176,8 @@ let g:buffergator_suppress_keymaps=1
 let g:SuperTabDefaultCompletionType="context"
 
 " snipmate
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['scss'] = 'css'
 imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
