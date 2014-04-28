@@ -153,6 +153,8 @@ let g:syntastic_enable_highlighting=0
 let g:syntastic_java_javac_config_file_enabled=1
 "" javascript with node
 let g:syntastic_javascript_checkers=['jshint']
+"" Do not trigger with sass files types
+let g:syntastic_mode_map = { 'passive_filetypes': ['scss'] }
 
 " Nerdtree
 let g:NERDTreeDirArrows = 0
