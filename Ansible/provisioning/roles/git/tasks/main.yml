@@ -1,0 +1,7 @@
+---
+- name: Install git from package repository
+  apt: name=git-core
+  sudo: true
+
+- name: Copy global git configuration
+  copy: src=gitconfig dest=~/.gitconfig

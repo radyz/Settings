@@ -1,0 +1,36 @@
+---
+- name: Add node ppa 
+  apt_repository: repo='ppa:chris-lea/node.js'
+  sudo: true
+
+- name: Install nodejs from package repository
+  apt: name={{ item }} state=latest update_cache=yes
+  sudo: true
+  with_items: 
+  - python-software-properties
+  - python
+  - g++
+  - make
+  - nodejs
+
+# Set npm local module path to avoid using sudo with global packages
+- name: Copy npmrc
+  copy: src=npmrc dest=~/.npmrc
+
+- name: Make directory to hold node global modules
+  file: path=~/.node state=directory
+
+- name: Append bash_profile settings
+  copy: content='export PATH=$HOME/.node/bin:$PATH' dest=~/.bash_profile
+
+
+# Install global utility node modules
+- name: Install global node modules
+  command: npm install {{ item }} -g
+  with_items: 
+    - http-server
+    - nodemon
+    - node-inspector
+    - jshint
+    - yo
+    - generator-angular-fullstack

@@ -1,0 +1,50 @@
+---
+- name: Install vim from package repository
+  apt: name=vim state=latest
+  sudo: true
+
+- name: Set vimrc
+  get_url: url=https://raw.githubusercontent.com/Radyz/Settings/master/Vim/_vimrc dest=~/.vimrc
+
+- name: Create vim folder structure
+  file: path=~/.vim/{{ item }} state=directory
+  with_items:
+    - after
+    - autoload
+    - bundle
+    - colors
+    - doc
+    - snippets
+
+# Download all plugins via pathogen
+
+- name: Download pathogen
+  get_url: url=https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim dest=~/.vim/autoload
+
+- name: Download plugins
+  git:  repo={{ item }} dest=~/.vim/bundle
+  with_items:
+    - https://github.com/tpope/vim-pathogen.git
+    - https://github.com/kien/ctrlp.vim.git
+    - http://github.com/mattn/emmet-vim.git
+    - https://github.com/tmhedberg/matchit.git
+    - https://github.com/scrooloose/nerdcommenter.git
+    - https://github.com/scrooloose/nerdtree.git
+    - https://github.com/ervandew/supertab.git
+    - https://github.com/scrooloose/syntastic.git
+    - https://github.com/godlygeek/tabular.git
+    - https://github.com/bling/vim-airline.git
+    - https://github.com/jeetsukumaran/vim-buffergator.git
+    - https://github.com/tpope/vim-bundler.git
+    - https://github.com/Lokaltog/vim-easymotion.git
+    - https://github.com/tpope/vim-fugitive.git
+    - https://github.com/kablamo/vim-git-log.git
+    - https://github.com/pangloss/vim-javascript.git
+    - https://github.com/groenewege/vim-less.git
+    - https://github.com/terryma/vim-multiple-cursors.git
+    - https://github.com/tpope/vim-rails.git
+    - https://github.com/vim-ruby/vim-ruby.git
+    - https://github.com/mhinz/vim-signify.git
+    - https://github.com/garbas/vim-snipmate.git
+    - https://github.com/tpope/vim-surround.git
+    - https://github.com/tpope/vim-unimpaired.git
