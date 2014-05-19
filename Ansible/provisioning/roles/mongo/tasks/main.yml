@@ -1,0 +1,12 @@
+---
+- name: Import public key
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+  sudo: true
+
+- name: Create list file
+  apt_repository: repo='deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' state=present
+  sudo: true
+
+- name: Install mongo
+  apt: name=mongodb-org state=latest update-cache=yes
+  sudo: true
