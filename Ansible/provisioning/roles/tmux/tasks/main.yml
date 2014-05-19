@@ -1,0 +1,15 @@
+---
+- name: Add tmux ppa
+  apt_repository: repo='ppa:pi-rho/dev'
+  sudo: true
+
+- name: Install tmux from package repository
+  apt: name=tmux state=latest update_cache=yes
+  sudo: true
+
+- name: Download settings from own repository
+  get_url: url=https://raw.githubusercontent.com/Radyz/Settings/master/Tmux/.tmux.conf dest=~/.tmux.conf
+
+- name: Set correct colors when interacting with vim
+  copy: content="alias tmux='tmux -2'" dest=~/.bash_profile
+
