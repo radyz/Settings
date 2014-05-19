@@ -1,0 +1,2 @@
+version: 1.9.7
+file: phantomjs-{{ version }}-linux-i686

@@ -1,0 +1,20 @@
+---
+# There isn't a ppa to install latest version so it needs to be done manually
+
+- name: Install dependencies
+  apt: name=libfontconfig1 state=latest
+  sudo: true
+
+- name: Download binary
+  get_url: url=http://cdn.bitbucket.org/ariya/phantomjs/downloads/{{ file }}.tar.bz2 dest=/tmp
+
+- name: Untar binary download
+  command: tar xjf {{ file }}.tar.bz2 chdir=/tmp
+
+- name: Move binary to /opt folder
+  command: cp {{ file }} /opt -rf chdir=/tmp
+  sudo: true
+
+- name: Set symlink to binary
+  file: src=/opt/{{ file }}/bin/phantomjs state=link path=/usr/bin/phantomjs
+  sudo: true
