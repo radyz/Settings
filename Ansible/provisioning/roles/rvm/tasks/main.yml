@@ -1,0 +1,3 @@
+---
+- name: Install Rvm
+  command: curl -sSl https://get.rvm.io | bash -s stable
