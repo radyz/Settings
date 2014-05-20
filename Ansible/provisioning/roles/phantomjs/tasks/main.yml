@@ -2,8 +2,11 @@
 # There isn't a ppa to install latest version so it needs to be done manually
 
 - name: Install dependencies
-  apt: name=libfontconfig1 state=latest
+  apt: name={{ item }} state=latest
   sudo: true
+  with_items: 
+  - libfontconfig1
+  - openjdk-7-jre
 
 - name: Download binary
   get_url: url=http://cdn.bitbucket.org/ariya/phantomjs/downloads/{{ file }}.tar.bz2 dest=/tmp
