@@ -122,6 +122,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.box = "precise32"
     node.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
+    node.vm.synced_folder "~/Vagrant/shared_folders", "/home/vagrant/shared_folder"
+    node.vm.synced_folder "~/Repos", "/home/vagrant/shared_repos"
+
     node.vm.network "private_network", ip: "192.168.33.10"
     # Enable provision with ansible
     node.vm.provision 'ansible' do |ansible|
@@ -129,5 +132,29 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ansible.inventory_path = 'provisioning/inventory/development'
     end
   end
+
+  config.vm.define 'mongo' do |mongo|
+    mongo.vm.box = "precise32"
+    mongo.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
+    mongo.vm.network "private_network", ip: "192.168.33.11"
+    # Enable provision with ansible
+    mongo.vm.provision 'ansible' do |ansible|
+      ansible.playbook = 'provisioning/playbook.yml'
+      ansible.inventory_path = 'provisioning/inventory/development'
+    end
+  end
+
+  #config.vm.define 'postgres' do |postgres|
+    #postgres.vm.box = "precise32"
+    #postgres.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
+    #postgres.vm.network "private_network", ip: "192.168.33.12"
+    ## Enable provision with ansible
+    #postgres.vm.provision 'ansible' do |ansible|
+      #ansible.playbook = 'provisioning/playbook.yml'
+      #ansible.inventory_path = 'provisioning/inventory/development'
+    #end
+  #end
 
 end
