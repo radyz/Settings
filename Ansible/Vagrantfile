@@ -157,4 +157,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #end
   #end
 
+  config.vm.define 'android' do |android|
+    android.vm.box = "precise32"
+    android.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
+    android.vm.synced_folder "~/Vagrant/shared_folders", "/home/vagrant/shared_folder"
+    android.vm.synced_folder "~/Repos", "/home/vagrant/shared_repos"
+
+    android.vm.network "private_network", ip: "192.168.33.13"
+    # Enable provision with ansible
+    android.vm.provision 'ansible' do |ansible|
+      ansible.playbook = 'provisioning/playbook.yml'
+      ansible.inventory_path = 'provisioning/inventory/development'
+    end
+  end
+
 end

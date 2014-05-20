@@ -3,8 +3,24 @@
   roles:
     - common
     - git
+    - tmux
     - vim
-    #- node
+    - node
+    - phantomjs
+
+- hosts: mongoserver
+  roles:
+    - common
+    - mongo
+
+- hosts: androidserver
+  roles: 
+    - common
+
+#- hosts: postgresserver
+  #roles:
+    #- common
+    #- postgres
 
 #If roles/x/tasks/main.yml exists, tasks listed therein will be added to the play
 #If roles/x/handlers/main.yml exists, handlers listed therein will be added to the play
