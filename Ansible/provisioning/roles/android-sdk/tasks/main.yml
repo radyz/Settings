@@ -1,0 +1,22 @@
+---
+- name: Install java
+  apt: name={{ item }} state=latest
+  sudo: true
+  with_items:
+    - openjdk-7-jdk
+    - ant
+
+- name: Download Android SDK
+  get_url: url=https://dl.google.com/android/android-sdk_r22.6.2-linux.tgz dest=/tmp
+
+- name: Untar Android SDK
+  command: tar zxf android-sdk_r22.6.2-linux.tgz chdir=/tmp
+
+- name: Move Android SDK to home folder
+  command: cp android-sdk-linux ~/ -rf chdir=/tmp
+
+- name: Add android tools to path variable
+  copy: content="PATH=$HOME/android-sdk-linux/tools:$PATH" dest=~/.bash_profile
+
+- name: Add android platform tools to path variable
+  copy: content="PATH=$HOME/android-sdk-linux/platform-tools:$PATH" dest=~/.bash_profile

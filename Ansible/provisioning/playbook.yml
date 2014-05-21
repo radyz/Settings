@@ -16,6 +16,9 @@
 - hosts: androidserver
   roles: 
     - common
+    - vim
+    - tmux
+    - android-sdk
 
 #- hosts: postgresserver
   #roles:

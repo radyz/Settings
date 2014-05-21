@@ -165,6 +165,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     android.vm.synced_folder "~/Repos", "/home/vagrant/shared_repos"
 
     android.vm.network "private_network", ip: "192.168.33.13"
+
+    # Enable usb devices to connect android devices
+    # Must have installed VB Extensions on the host OS
+    # Enable USB Debugging in your android device to be read
+    # and connect it to computer in order to authorize it
+    android.vm.provider :virtualbox do |vb|
+      vb.customize ['modifyvm', :id, '--usb', 'on']
+      # Filter to allow my android nexus five
+      vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', '039bbb4c4380529f', '--vendorid', '0x18d1']
+    end
+
     # Enable provision with ansible
     android.vm.provision 'ansible' do |ansible|
       ansible.playbook = 'provisioning/playbook.yml'
