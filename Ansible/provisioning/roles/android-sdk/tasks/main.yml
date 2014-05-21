@@ -15,8 +15,5 @@
 - name: Move Android SDK to home folder
   command: cp android-sdk-linux ~/ -rf chdir=/tmp
 
-- name: Add android tools to path variable
-  copy: content="PATH=$HOME/android-sdk-linux/tools:$PATH" dest=~/.bash_profile
-
-- name: Add android platform tools to path variable
-  copy: content="PATH=$HOME/android-sdk-linux/platform-tools:$PATH" dest=~/.bash_profile
+- name: Add android to path variable
+  lineinfile: line="PATH=$HOME/android-sdk-linux/tools:$HOME/android-sdk-linux/platform-tools:$PATH" dest=~/.bash_profile state=present create=yes

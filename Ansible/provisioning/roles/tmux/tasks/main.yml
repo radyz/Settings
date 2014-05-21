@@ -11,5 +11,5 @@
   get_url: url=https://raw.githubusercontent.com/Radyz/Settings/master/Tmux/.tmux.conf dest=~/.tmux.conf
 
 - name: Set correct colors when interacting with vim
-  copy: content="alias tmux='tmux -2'" dest=~/.bash_profile
+  lineinfile: line="alias tmux='tmux -2'" dest=~/.bash_profile state=present create=yes
 
