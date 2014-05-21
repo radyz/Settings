@@ -16,6 +16,7 @@
 - hosts: androidserver
   roles: 
     - common
+    - git
     - vim
     - tmux
     - android-sdk
