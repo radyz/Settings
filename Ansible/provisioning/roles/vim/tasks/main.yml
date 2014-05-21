@@ -91,3 +91,5 @@
       folder: vim-surround
     - remote: https://github.com/tpope/vim-unimpaired.git
       folder: vim-unimpaired
+    - remote: https://github.com/Raimondi/delimitMate.git
+      folder: delimitMate
