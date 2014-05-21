@@ -1,6 +1,9 @@
 ---
 - name: Install vim from package repository
-  apt: name=vim state=latest
+  apt: name={{ item }} state=latest
+  with_items:
+    - vim
+    - exuberant-ctags
   sudo: true
 
 - name: Create vim folder structure
