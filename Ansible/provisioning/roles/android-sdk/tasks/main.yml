@@ -6,6 +6,9 @@
     - openjdk-7-jdk
     - ant
 
+- name: Add java home to correct path
+  lineinfile: line="export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386" dest=~/.bash_profile state=present create=yes
+
 - name: Download Android SDK
   get_url: url=https://dl.google.com/android/android-sdk_r22.6.2-linux.tgz dest=/tmp
 
