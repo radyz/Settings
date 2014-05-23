@@ -21,7 +21,7 @@
   file: path=~/.node state=directory
 
 - name: Append bash_profile settings
-  copy: content='export PATH=$HOME/.node/bin:$PATH' dest=~/.bash_profile
+  lineinfile: line='export PATH=$HOME/.node/bin:$PATH' dest=~/.bash_profile create=yes
 
 
 # Install global utility node modules

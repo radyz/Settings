@@ -2,3 +2,9 @@
 - name: update package repository
   apt: update-cache=yes cache_valid_time=1800
   sudo: true
+
+- name: Install common packages
+  apt: name={{ item }} state=latest
+  sudo: true
+  with_items:
+    - unzip
