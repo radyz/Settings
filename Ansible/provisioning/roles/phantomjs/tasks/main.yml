@@ -9,7 +9,7 @@
   - openjdk-7-jre
 
 - name: Download binary
-  get_url: url=http://cdn.bitbucket.org/ariya/phantomjs/downloads/{{ file }}.tar.bz2 dest=/tmp
+  get_url: url=https://bitbucket.org/ariya/phantomjs/downloads/{{ file }}.tar.bz2 dest=/tmp
 
 - name: Untar binary download
   command: tar xjf {{ file }}.tar.bz2 chdir=/tmp
