@@ -34,3 +34,4 @@
     - jshint
     - yo
     - generator-angular-fullstack
+    - generator-phaser-official
