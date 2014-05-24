@@ -23,6 +23,9 @@
 - name: Append bash_profile settings
   lineinfile: line='export PATH=$HOME/.node/bin:$PATH' dest=~/.bash_profile create=yes
 
+- name: Append npm path to node_path
+  lineinfile: line='export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules' dest=~/.bash_profile create=yes
+
 
 # Install global utility node modules
 - name: Install global node modules
