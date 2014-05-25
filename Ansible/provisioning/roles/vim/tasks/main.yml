@@ -87,6 +87,8 @@
       folder: vim-snipmate
     - remote: https://github.com/MarcWeber/vim-addon-mw-utils.git
       folder: vim-addon-mw-utils
+    - remote: https://github.com/tomtom/tlib_vim.git
+      folder: tlib_vim
     - remote: https://github.com/tpope/vim-surround.git
       folder: vim-surround
     - remote: https://github.com/tpope/vim-unimpaired.git
