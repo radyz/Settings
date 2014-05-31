@@ -171,6 +171,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Enable USB Debugging in your android device to be read
     # and connect it to computer in order to authorize it
     android.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024"]
+
       vb.customize ['modifyvm', :id, '--usb', 'on']
       # Filter to allow my android nexus five
       vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', '039bbb4c4380529f', '--vendorid', '0x18d1']

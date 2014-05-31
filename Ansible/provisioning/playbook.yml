@@ -17,9 +17,11 @@
   roles: 
     - common
     - git
-    - vim
     - tmux
+    - vim
     - android-sdk
+    - node
+    - phantomjs
 
 #- hosts: postgresserver
   #roles:
