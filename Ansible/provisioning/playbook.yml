@@ -22,6 +22,7 @@
     - android-sdk
     - node
     - phantomjs
+    - rvm
 
 - hosts: ceroicserver
   roles: 
