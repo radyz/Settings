@@ -6,6 +6,9 @@
     - exuberant-ctags
   sudo: true
 
+- name: Add vim as the default editor
+  lineinfile: line="export EDITOR='vim'" state=present dest=~/.bash_profile create=yes
+
 - name: Create vim folder structure
   file: path=~/.vim/{{ item }} state=directory
   with_items:
