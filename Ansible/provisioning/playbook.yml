@@ -23,6 +23,16 @@
     - node
     - phantomjs
 
+- hosts: ceroicserver
+  roles: 
+    - common
+    - git
+    - tmux
+    - vim
+    - node
+    - phantomjs
+    - rvm
+
 #- hosts: postgresserver
   #roles:
     #- common

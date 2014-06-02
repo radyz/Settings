@@ -185,4 +185,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
+  config.vm.define 'ceroic' do |ceroic|
+    ceroic.vm.box = "precise32"
+    ceroic.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
+    ceroic.vm.synced_folder "~/Vagrant/shared_folders", "/home/vagrant/shared_folder"
+    ceroic.vm.synced_folder "~/Repos", "/home/vagrant/shared_repos"
+
+    ceroic.vm.network "private_network", ip: "192.168.33.14"
+
+    # Enable usb devices to connect ceroic devices
+    # Must have installed VB Extensions on the host OS
+    # Enable USB Debugging in your ceroic device to be read
+    # and connect it to computer in order to authorize it
+    ceroic.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024"]
+    end
+
+    # Enable provision with ansible
+    ceroic.vm.provision 'ansible' do |ansible|
+      ansible.playbook = 'provisioning/playbook.yml'
+      ansible.inventory_path = 'provisioning/inventory/development'
+    end
+  end
 end

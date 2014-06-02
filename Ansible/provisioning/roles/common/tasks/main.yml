@@ -8,3 +8,4 @@
   sudo: true
   with_items:
     - unzip
+    - curl
