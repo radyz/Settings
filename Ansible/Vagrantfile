@@ -137,7 +137,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     mongo.vm.box = "precise32"
     mongo.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
+    mongo.vm.synced_folder "~/Vagrant/shared_folders", "/home/vagrant/shared_folder"
+
     mongo.vm.network "private_network", ip: "192.168.33.11"
+
+    mongo.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "512"]
+    end
+
     # Enable provision with ansible
     mongo.vm.provision 'ansible' do |ansible|
       ansible.playbook = 'provisioning/playbook.yml'
@@ -171,7 +178,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Enable USB Debugging in your android device to be read
     # and connect it to computer in order to authorize it
     android.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--memory", "512"]
 
       vb.customize ['modifyvm', :id, '--usb', 'on']
       # Filter to allow my android nexus five
@@ -199,7 +206,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Enable USB Debugging in your ceroic device to be read
     # and connect it to computer in order to authorize it
     ceroic.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--memory", "512"]
     end
 
     # Enable provision with ansible
