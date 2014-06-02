@@ -1,3 +1,6 @@
 ---
 - name: Install Rvm
   command: curl -sSl https://get.rvm.io | bash -s stable
+
+- name: Source profile file
+  lineinfile: line="source ~/.profile" dest=~/.bash_profile state=present create=yes
