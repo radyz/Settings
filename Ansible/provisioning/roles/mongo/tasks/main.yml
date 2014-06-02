@@ -10,3 +10,7 @@
 - name: Install mongo
   apt: name=mongodb-org state=latest update-cache=yes
   sudo: true
+
+- name: Comment out ip_binding in order to allow remote connections
+  lineinfile: regexp="^bind_ip " line="# bind_ip = 127.0.0.1" dest=/etc/mongod.conf
+  sudo: true
