@@ -4,3 +4,9 @@
 
 - name: Source profile file
   lineinfile: line="source ~/.profile" dest=~/.bash_profile state=present create=yes
+
+- name: Install latest ruby
+  command: rvm install ruby
+
+- name: Install tmuxinator
+  command: gem install tmuxinator
