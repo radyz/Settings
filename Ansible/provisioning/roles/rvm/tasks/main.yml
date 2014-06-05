@@ -10,3 +10,7 @@
 
 - name: Install tmuxinator
   command: gem install tmuxinator
+
+- name: Install sshpass in order for tmuxinator to ssh from a single command
+  apt: name=sshpass state=latest
+  sudo: true

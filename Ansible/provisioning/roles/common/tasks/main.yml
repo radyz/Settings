@@ -9,4 +9,3 @@
   with_items:
     - unzip
     - curl
-    - sshpass
