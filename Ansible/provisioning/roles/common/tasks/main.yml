@@ -9,3 +9,7 @@
   with_items:
     - unzip
     - curl
+
+- name: Disallow passsword authentication
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present  
+  sudo: true

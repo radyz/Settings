@@ -1,0 +1,6 @@
+app_name: youtrack
+version: 5.2.2-8792
+file: "{{ app_name }}-{{ version }}.jar"
+domain: "{{ app_name }}.tixif.com"
+port: 8080
+owner: "{{ app_name }}"

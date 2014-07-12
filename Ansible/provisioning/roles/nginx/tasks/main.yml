@@ -1,0 +1,8 @@
+---
+- name: Add nginx ppa
+  apt_repository: repo='ppa:nginx/stable'
+  sudo: true
+
+- name: Install nginx
+  apt: name=nginx state=latest update_cache=yes
+  sudo: true

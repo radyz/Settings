@@ -34,6 +34,13 @@
     - phantomjs
     - rvm
 
+- hosts: youtrackserver
+  roles:
+    - common
+    - nginx
+    - { role: youtrack, sudo: yes }
+
+
 #- hosts: postgresserver
   #roles:
     #- common

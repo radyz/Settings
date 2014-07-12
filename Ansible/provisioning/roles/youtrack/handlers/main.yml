@@ -1,0 +1,6 @@
+---
+- name: Reload nginx configuration
+  service: name=nginx state=reloaded
+
+- name: Restart youtrack
+  service: name=youtrack state=reloaded

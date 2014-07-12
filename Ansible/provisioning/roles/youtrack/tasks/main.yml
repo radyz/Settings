@@ -1,0 +1,41 @@
+---
+- name: Install dependencies
+  apt: name=openjdk-7-jre state=latest
+
+- name: Download jar
+  get_url: url=http://download-cf.jetbrains.com/charisma/{{ file }} dest=/tmp
+
+- name: Create youtrack folder
+  file: path=/usr/local/{{ app_name }} state=directory
+
+- name: Move jar to /usr/local/youtrack folder
+  command: cp {{ file }} /usr/local/youtrack -rf chdir=/tmp
+
+- name: Create nginx configuration
+  template: src=site.conf dest=/etc/nginx/sites-available/{{ domain }}
+
+- name: Enable nginx site
+  file: src=/etc/nginx/sites-available/{{ domain }} dest=/etc/nginx/sites-enabled/{{ domain }} state=link
+  notify: Reload nginx configuration
+
+- name: Create youtrack user
+  user: name={{ owner }}
+
+- name: Assign ownership to youtrack jar
+  file: path=/usr/local/{{ app_name }} owner={{ owner }}
+
+- name: Create etc_init script
+  template: src=youtrack_etc_init.sh dest=/etc/init.d/{{ app_name }}
+
+- name: Make the init script executable
+  file: path=/etc/init.d/{{ app_name }} mode=755
+
+- name: Setup system startup links
+  command: update-rc.d youtrack defaults
+
+- name: Create init script
+  template: src=youtrack_init.sh dest=/usr/local/{{ app_name }}/{{ app_name }}.sh
+
+- name: Make the init script executable
+  file: path=/usr/local/{{ app_name }}/{{ app_name }}.sh mode=755
+  notify: Restart youtrack
