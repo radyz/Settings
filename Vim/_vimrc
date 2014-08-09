@@ -158,6 +158,7 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['scss'] }
 
 " Nerdtree
 let g:NERDTreeDirArrows = 0
+let NERDTreeIgnore=['\.pyc$']
 
 " easytags
 let g:easytags_updatetime_warn=0
