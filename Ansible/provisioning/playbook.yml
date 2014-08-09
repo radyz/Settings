@@ -33,6 +33,8 @@
     - node
     - phantomjs
     - rvm
+  vars:
+    user: vagrant
 
 - hosts: youtrackserver
   roles:

@@ -9,100 +9,19 @@
 - name: Add vim as the default editor
   lineinfile: line="export EDITOR='vim'" state=present dest=~/.bash_profile create=yes
 
-- name: Create vim folder structure
-  file: path=~/.vim/{{ item }} state=directory
-  with_items:
-    - after
-    - autoload
-    - bundle
-    - colors
-    - doc
-    - snippets
-
 # Download settings from own repository
-- name: Download Settings repository
-  git: repo=https://github.com/Radyz/Settings.git dest=/tmp/Settings
+- name: Download vim folder
+  git: repo=https://github.com/Radyz/Vim-Radyz.git dest=~/.vim
 
-- name: Copy vimrc to home path
-  command: cp _vimrc ~/.vimrc chdir=/tmp/Settings/Vim
+- name: Create symlink to vimrc
+  file: src=~/.vim/.vimrc dest=~/.vimrc state=link
 
-- name: Copy snippets directory to vim snippets
-  command: cp snippets ~/.vim -rf chdir=/tmp/Settings/Vim
+- name: Create symlink to pathogen
+  file: src=~/.vim/autoload/vim-pathogen/autoload/pathogen.vim dest=~/.vim/autoload/pathogen.vim state=link
 
-# Download color scheme
-- name: Download hybrid theme
-  git: repo=https://github.com/w0ng/vim-hybrid.git dest=/tmp/vim-hybrid
-
-- name: Copy hybrid theme to vim colors
-  command: cp colors/hybrid.vim ~/.vim/colors chdir=/tmp/vim-hybrid
-
-# Download all plugins via pathogen
-
-- name: Download pathogen
-  get_url: url=https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim dest=~/.vim/autoload
-
-- name: Download plugins
-  git:  repo={{ item.remote }} dest=~/.vim/bundle/{{ item.folder }}
-  with_items:
-    - remote: https://github.com/tpope/vim-pathogen.git
-      folder: vim-pathogen
-    - remote: https://github.com/kien/ctrlp.vim.git
-      folder: ctrlp
-    - remote: https://github.com/mattn/emmet-vim.git
-      folder: emmet-vim
-    - remote: https://github.com/tmhedberg/matchit.git
-      folder: matchit
-    - remote: https://github.com/scrooloose/nerdcommenter.git
-      folder: nerdcommenter
-    - remote: https://github.com/scrooloose/nerdtree.git
-      folder: nerdtree
-    - remote: https://github.com/ervandew/supertab.git
-      folder: supertab
-    - remote: https://github.com/scrooloose/syntastic.git
-      folder: syntastic
-    - remote: https://github.com/godlygeek/tabular.git
-      folder: tabular
-    - remote: https://github.com/bling/vim-airline.git
-      folder: vim-airline
-    - remote: https://github.com/jeetsukumaran/vim-buffergator.git
-      folder: vim-buffergator
-    - remote: https://github.com/tpope/vim-bundler.git
-      folder: vim-bundler
-    - remote: https://github.com/Lokaltog/vim-easymotion.git
-      folder: vim-easymotion
-    - remote: https://github.com/tpope/vim-fugitive.git
-      folder: vim-fugitive
-    - remote: https://github.com/kablamo/vim-git-log.git
-      folder: vim-git-log
-    - remote: https://github.com/pangloss/vim-javascript.git
-      folder: vim-javascript
-    - remote: https://github.com/groenewege/vim-less.git
-      folder: vim-less
-    - remote: https://github.com/terryma/vim-multiple-cursors.git
-      folder: vim-multiple-cursors
-    - remote: https://github.com/tpope/vim-rails.git
-      folder: vim-rails
-    - remote: https://github.com/vim-ruby/vim-ruby.git
-      folder: vim-ruby
-    - remote: https://github.com/mhinz/vim-signify.git
-      folder: vim-signify
-    - remote: https://github.com/garbas/vim-snipmate.git
-      folder: vim-snipmate
-    - remote: https://github.com/MarcWeber/vim-addon-mw-utils.git
-      folder: vim-addon-mw-utils
-    - remote: https://github.com/tomtom/tlib_vim.git
-      folder: tlib_vim
-    - remote: https://github.com/tpope/vim-surround.git
-      folder: vim-surround
-    - remote: https://github.com/tpope/vim-unimpaired.git
-      folder: vim-unimpaired
-    - remote: https://github.com/Raimondi/delimitMate.git
-      folder: delimitMate
-    - remote: https://github.com/jmcantrell/vim-virtualenv.git
-      folder: vim-virtualenv
-    - remote: https://github.com/python-rope/ropevim.git
-      folder: ropevim
+- name: Create symlink to hybrid theme
+  file: src=~/.vim/colors/hybrid/colors/hybrid.vim dest=~/.vim/colors/hybrid.vim state=link
 
 - name: Complete ropevim setup
-  command: python setup.py install chdir=~/.vim/bundle/ropevim
+  command: python setup.py install chdir=/home/{{ user }}/.vim/bundle/ropevim
   sudo: true
