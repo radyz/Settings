@@ -98,3 +98,5 @@
       folder: vim-unimpaired
     - remote: https://github.com/Raimondi/delimitMate.git
       folder: delimitMate
+    - remote: https://github.com/jmcantrell/vim-virtualenv.git
+      folder: vim-virtualenv
