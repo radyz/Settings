@@ -168,6 +168,7 @@ let g:ctrlp_custom_ignore='tags\|node_modules\|bower_components\'
 
 " airline bar
 let g:airline_theme='molokai'
+let g:airline#extensions#virtualenv#enabled=1
 "" required for airline so it shows on normal buffers
 set laststatus=2
 set ttimeoutlen=50
