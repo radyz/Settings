@@ -100,3 +100,9 @@
       folder: delimitMate
     - remote: https://github.com/jmcantrell/vim-virtualenv.git
       folder: vim-virtualenv
+    - remote: https://github.com/python-rope/ropevim.git
+      folder: ropevim
+
+- name: Complete ropevim setup
+  command: python setup.py install chdir=~/.vim/bundle/ropevim
+  sudo: true
