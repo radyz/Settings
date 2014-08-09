@@ -5,3 +5,9 @@
 
 - name: Copy global git configuration
   copy: src=gitconfig dest=~/.gitconfig
+
+- name: Copy global git ignore
+  copy: src=gitconfig dest=~/.gitignore
+
+- name: Setup global git ignore configuration
+  command: git config --global core.excludesfile ~/.gitignore
