@@ -11,7 +11,7 @@
 
 # Download settings from own repository
 - name: Download vim folder
-  git: repo=https://github.com/Radyz/Vim-Radyz.git dest=~/.vim
+  git: repo=https://github.com/Radyz/vim-radyz.git dest=~/.vim
 
 - name: Create symlink to vimrc
   file: src=~/.vim/.vimrc dest=~/.vimrc state=link
