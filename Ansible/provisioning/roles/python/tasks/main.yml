@@ -13,7 +13,6 @@
     - pylint
     - virtualenv
     - virtualenvwrapper
-    - rope
 
 - name: Add workon_home variable for virtualenvwrapper
   lineinfile: line='export WORKON_HOME=$HOME/.virtualenvs' dest=~/.bash_profile create=yes
