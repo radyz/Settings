@@ -3,7 +3,7 @@
   get_url: url=https://bootstrap.pypa.io/{{ pip_file }} dest=/tmp
 
 - name: Install pip
-  command: python {{ pip_file }} chdir/tmp
+  command: python {{ pip_file }} chdir=/tmp
   sudo: true
 
 - name: Install global pip packages
