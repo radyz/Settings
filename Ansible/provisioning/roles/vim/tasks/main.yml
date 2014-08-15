@@ -21,7 +21,3 @@
 
 - name: Create symlink to hybrid theme
   file: src=~/.vim/colors/hybrid/colors/hybrid.vim dest=~/.vim/colors/hybrid.vim state=link
-
-- name: Complete ropevim setup
-  command: python setup.py install chdir=/home/{{ user }}/.vim/bundle/ropevim
-  sudo: true
