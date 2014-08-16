@@ -3,7 +3,7 @@
   get_url: url=https://bootstrap.pypa.io/{{ pip_file }} dest=/tmp
 
 - name: Install pip
-  command: python {{ pip_file }} chdir/tmp
+  command: python {{ pip_file }} chdir=/tmp
   sudo: true
 
 - name: Install global pip packages
@@ -18,7 +18,7 @@
   lineinfile: line='export WORKON_HOME=$HOME/.virtualenvs' dest=~/.bash_profile create=yes
 
 - name: Add project_home variable for virtualenvwrapper
-  lineinfile: line='export PROJECT_HOME=$HOME/share_repos' dest=~/.bash_profile create=yes
+  lineinfile: line='export PROJECT_HOME=$HOME/shared_repos' dest=~/.bash_profile create=yes
 
 - name: Source virtualenvwrapper
   lineinfile: line="source /usr/local/bin/virtualenvwrapper.sh" dest=~/.bash_profile state=present create=yes
