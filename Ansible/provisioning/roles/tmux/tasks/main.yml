@@ -7,8 +7,8 @@
   apt: name=tmux state=latest update_cache=yes
   sudo: true
 
-- name: Download settings from own repository
-  get_url: url=https://raw.githubusercontent.com/Radyz/Settings/master/Tmux/.tmux.conf dest=~/.tmux.conf
+- name: Copy settings
+  copy: src=tmux.conf dest=~/.tmux.conf
 
 - name: Set correct colors when interacting with vim
   lineinfile: line="alias tmux='tmux -2'" dest=~/.bash_profile state=present create=yes
