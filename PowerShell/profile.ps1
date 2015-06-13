@@ -1,25 +1,15 @@
-# Load posh-git module from current directory
-Import-Module posh-git
-
 # Defining custom prompt message
-function global:prompt {
+function prompt {
     # Get command issue time
-    $time = (Get-Date).ToString("HH:mm")
+    $time = (Get-Date).ToString("HH:mm:ss")
 
     # Get current path
     $folderPath = Get-Location
     
     # Write time, name, current path to output 
-    Write-Host("$time $env:COMPUTERNAME $folderPath") -nonewline
-
-    Write-VcsStatus      
+    Write-Host("[$time] ") -nonewline -ForegroundColor 	Yellow
+    Write-Host("{$env:COMPUTERNAME} ") -nonewline -ForegroundColor Green
+    Write-Host("$folderPath") -nonewline
     
-    $global:LASTEXITCODE = $realLASTEXITCODE
     return "> "  
 }
-
-# Defining Project's folder path
-$DevPath = "C:\Development"
-
-# Get DTE instance
-# $dte = [runtime.interopservices.marshal]::GetActiveObject("visualstudio.dte")
